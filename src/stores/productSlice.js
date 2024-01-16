@@ -8,7 +8,7 @@ export function getInitialProducts() {
             name: "Product 1",
             category: "vegetable",
             isSpecial: true,
-            price: "200",
+            price: "£200",
         },
         {   description: "Anss",
             canBeExpired : true,
@@ -16,7 +16,7 @@ export function getInitialProducts() {
             name: "Product 2",
             category: "vegetable",
             isSpecial: false,
-            price: "200",
+            price: "£200",
         },
         {   description: "Andfs",
             canBeExpired : false,
@@ -24,7 +24,7 @@ export function getInitialProducts() {
             name: "Product 23",
             category: "furniture",
             isSpecial: false,
-            price: "200",
+            price: "£200",
         },
         {   description: "Anxvcvs",
             canBeExpired : true,
@@ -32,7 +32,7 @@ export function getInitialProducts() {
             name: "Product 3",
             category: "meat",
             isSpecial: true,
-            price: "200",
+            price: "£200",
         },
         {   description: "Anbnbns",
             canBeExpired : true,
@@ -40,7 +40,7 @@ export function getInitialProducts() {
             name: "Product 4",
             category: "vegetable",
             isSpecial: true,
-            price: "200",
+            price: "£200",
         },
         {   description: "Ankukks",
             canBeExpired : true,
@@ -48,7 +48,7 @@ export function getInitialProducts() {
             name: "Product 5",
             category: "meat",
             isSpecial: false,
-            price: "200"
+            price: "£200"
         }
     ]
 }
