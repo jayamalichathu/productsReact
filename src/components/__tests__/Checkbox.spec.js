@@ -1,4 +1,4 @@
-import {render, fireEvent, screen, cleanup, getByDisplayValue} from '@testing-library/react';
+import {render, fireEvent, screen, cleanup} from '@testing-library/react';
 import Checkbox from '../Checkbox';
 
 afterEach(() => {
