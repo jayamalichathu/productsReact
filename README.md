@@ -1,6 +1,6 @@
 
 
-## Available Scripts
+## Project Information
 
 In the project directory, you can run after going to the project folder.:
 
