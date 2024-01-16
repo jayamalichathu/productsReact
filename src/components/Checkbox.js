@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Checkbox({value, onChange}){
+export default function Checkbox({checked, onChange}){
     return (
         <input
             type="checkbox"
-            value={value}
+            checked={checked}
             onChange={onChange}/>
     )
 }

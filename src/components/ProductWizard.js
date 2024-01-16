@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 
 import {CategoryList} from "./CategoryList";
 import {CATEGORIES} from "../selectors/ProductSelector";
@@ -8,8 +8,10 @@ import {Button} from "./Button";
 import Checkbox from "./Checkbox";
 import {getMessageString} from "../selectors/LocaleMessageSelector";
 import {LanguageContext} from "../locale/LanguageContext";
+import PriceInput from "./PriceInput";
 
 export function ProductWizard({onFinish, product}) {
+    const localeContext = useContext(LanguageContext);
     const [name, onChange] = useState(product ? product.name : "");
     const onNameChangeCallback = useCallback((value) => {
         onChange(value);
@@ -36,15 +38,35 @@ export function ProductWizard({onFinish, product}) {
 
     const [canBeExpired, onExpiredChanged] = useState(product ? product.canBeExpired :"");
     const onExpiredChangedCallback = useCallback((event) => {
-        onExpiredChanged(event.target.checked);
+        const isExpired = event.target.checked
+        onExpiredChanged(isExpired);
     },[onExpiredChanged]);
 
-    const [expiredDate, onExpiredDateChanged] = useState(product ? product.expiredDate :"");
+    const [expiredDate, onExpiredDateChanged] = useState(product ? product.expiredDate : null);
     const onExpiredDateChangedCallback = useCallback((value) => {
         onExpiredDateChanged(value);
     },[onExpiredDateChanged]);
 
-    const [isSpecial, onSpecialChange] = useState(product ? product.isSpecial :"");
+    const formatDefaultDate = () => {
+        const date = new Date();
+        const year = date.toLocaleString("default", { year: "numeric" });
+        const month = date.toLocaleString("default", { month: "2-digit" });
+        const day = date.toLocaleString("default", { day: "2-digit" });
+        return year + "-" + month + "-" + day;
+    }
+
+    useEffect(() => {
+        if (!expiredDate && canBeExpired) {
+            onExpiredDateChanged(formatDefaultDate());
+        }
+
+        else if (!canBeExpired && !expiredDate ){
+            onExpiredDateChanged("");
+        }
+
+    }, [expiredDate, canBeExpired, onExpiredDateChanged]);
+
+    const [isSpecial, onSpecialChange] = useState(product ? product.isSpecial : false);
     const onSpecialChangeCallback = useCallback((event) => {
         onSpecialChange(event.target.checked);
     },[onSpecialChange]);
@@ -52,6 +74,7 @@ export function ProductWizard({onFinish, product}) {
     const onClickProductButton = useCallback(() => {
         const product = {
             name,
+            category,
             price,
             description,
             canBeExpired,
@@ -59,13 +82,14 @@ export function ProductWizard({onFinish, product}) {
             isSpecial
         };
         onFinish(product);
-    }, [onFinish, name,  price,
+    }, [onFinish,
+        name,
+        category,
+        price,
         description,
         canBeExpired,
         expiredDate,
         isSpecial]);
-
-    const localeContext = useContext(LanguageContext);
 
     const title = product ? getMessageString(localeContext,"editTitle"): getMessageString(localeContext,"createTitle");
 
@@ -91,14 +115,12 @@ export function ProductWizard({onFinish, product}) {
 
                 <InputPair label={getMessageString(localeContext,"price")}>
                     <div>
-                        <TextBox type="number" value={price} onChange={onPriceChangeCallback}/>
-                        <span>$</span>
+                        <PriceInput price={price} onChange={onPriceChangeCallback}/>
                     </div>
-
                 </InputPair>
 
                 <InputPair label={getMessageString(localeContext,"canBeExpired")}>
-                    <input type="checkbox" checked={canBeExpired} onChange={onExpiredChangedCallback}/>
+                    <Checkbox checked={canBeExpired} onChange={onExpiredChangedCallback}/>
                 </InputPair>
                 {
                     canBeExpired
@@ -109,7 +131,7 @@ export function ProductWizard({onFinish, product}) {
                 }
 
                 <InputPair label={getMessageString(localeContext,"isSpecial")}>
-                    <Checkbox value={isSpecial} onChange={onSpecialChangeCallback}/>
+                    <Checkbox checked={isSpecial} onChange={onSpecialChangeCallback}/>
                 </InputPair>
 
             </div>

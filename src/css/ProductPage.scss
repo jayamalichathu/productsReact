@@ -38,9 +38,16 @@
         > * {
           display: table-cell;
         }
-        input, select {
+        > div, input, select {
           margin: 10px;
           width: 200px;
+        }
+      }
+      .PriceInput {
+        @include flex-box(row);
+        span {
+          margin-top: 10px;
+          margin-bottom: 10px;
         }
       }
     }

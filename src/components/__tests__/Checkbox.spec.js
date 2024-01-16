@@ -8,14 +8,14 @@ afterEach(() => {
 describe('Checkbox Component', () => {
     it('renders with the provided value', () => {
         render(<Checkbox value="sample" onChange={() => {}} />);
-        const checkbox = screen.getByDisplayValue('sample');
+        const checkbox = screen.getByRole('checkbox', { type: 'checkbox' });
         expect(checkbox).toBeInTheDocument();
     });
 
     it('calls onChange when checkbox is clicked', () => {
         const onChangeMock = jest.fn();
         render(<Checkbox value="sample" onChange={onChangeMock} />);
-        const checkbox = screen.getByDisplayValue('sample');
+        const checkbox = screen.getByRole('checkbox', { type: 'checkbox' });
 
         fireEvent.click(checkbox);
 
@@ -25,7 +25,7 @@ describe('Checkbox Component', () => {
     it('updates value when checkbox is clicked', () => {
         const onChangeMock = jest.fn();
         render(<Checkbox value="sample" onChange={onChangeMock} />);
-        const checkbox = screen.getByDisplayValue('sample');
+        const checkbox = screen.getByRole('checkbox', { type: 'checkbox' });
 
         fireEvent.click(checkbox);
 

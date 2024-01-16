@@ -1,8 +1,13 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 export function TextBox({type,value, onChange, disabled}) {
 
     const [textValue, onChangeValue] = useState(value);
+    useEffect(() => {
+        if (value) {
+            onChangeValue(value);
+        }
+    }, [value, onChangeValue]);
 
     const onChangeCallback = useCallback((event) => {
         onChange(event.target.value);
