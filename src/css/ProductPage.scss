@@ -1,0 +1,56 @@
+.ProductPage {
+  @include flex-box(column, center);
+  flex-wrap: wrap;
+  .ProductList {
+    .ActionContainer {
+      @include flex-box(row);
+      >input[type='button'] {
+        min-width: 150px;
+      }
+    }
+    .CategoryFilterer {
+      margin: 10px;
+    }
+    .Products {
+      margin: 10px;
+      >table {
+        table-layout: fixed;
+        width: 100%;
+        overflow-y: scroll;
+        border: 1px solid;
+      }
+    }
+    .ProductWizard {
+      >div:nth-child(1) {
+        text-align: center;
+        font-weight: bold;
+      }
+      @include flex-box(column, center);
+      border: 2px solid $border-color;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+
+      .InputPair {
+        display: table-row;
+
+        > * {
+          display: table-cell;
+        }
+        input, select {
+          margin: 10px;
+          width: 200px;
+        }
+      }
+    }
+
+    .Highlight {
+      background-color: #9dbae2;
+    }
+    .Selected {
+      background-color: $selection-color;
+    }
+  }
+
+}

@@ -1,0 +1,45 @@
+
+$border-color: #CCCCCC;
+$button-color: lighten($border-color, 10);
+$disabled-color: lighten($border-color, 12);
+$focus-color: #4090FF;
+$roll-over-color: #8999b9;
+$selection-color: #7aa8f8;
+
+input[type='button'] {
+  height: 22px;
+  font-weight: bold;
+  border: 1px outset $border-color;
+  white-space: nowrap;
+  margin: 5px;
+  border-radius: 0; // disable chrome's new rounded corners
+  @include gradient(white, $button-color);
+  @include noselect();
+
+  &:hover {
+    border: 1px solid $border-color;
+  }
+  &:active {
+    border: 1px inset $border-color;
+  }
+
+  &:disabled {
+    color: darkgrey;
+    border: 1px solid lighten($border-color, 5);
+    @include gradient(white, $disabled-color);
+  }
+}
+
+input[type='text'] {
+  background-color: white;
+  border: 1px inset $border-color;
+  height: 24px;
+  box-sizing: border-box;
+  text-indent: 3px;
+}
+
+select {
+  background-color: white;
+  border: 1px inset $border-color;
+  height: 24px;
+}

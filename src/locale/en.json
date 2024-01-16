@@ -1,0 +1,20 @@
+{
+  "welcome": "Hi There",
+  "categories": "Categories: ",
+  "existingProducts": "Existing products ",
+  "newProduct": "Create new product",
+  "editProduct":"Edit the selected product",
+  "deleteProduct":"Delete the selected product",
+  "productName": "Product Name: ",
+  "category": "Category: ",
+  "description": "Description: ",
+  "price": "Price: ",
+  "canBeExpired": "Can this be expired?",
+  "expiredDate": "Expired Date:",
+  "isSpecial": "Is this product special?",
+  "createProduct": "Create",
+  "edit": "Edit",
+  "editTitle": "Edit Product",
+  "createTitle": "Create Product"
+
+}

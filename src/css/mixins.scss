@@ -1,0 +1,40 @@
+@mixin box-view($top, $bottom, $left, $right, $position) {
+  position: $position;
+  top: $top;
+  bottom: $bottom;
+  left: $left;
+  right:  $right;
+}
+
+@mixin flex-box($direction, $align-items:auto) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+}
+
+@mixin gradient($from-color, $to-color) {
+  background: -webkit-gradient(
+                  linear,
+                  left top,
+                  left bottom,
+                  color-stop(0, $from-color),
+                  color-stop(1, $to-color)
+  );
+  background: -o-linear-gradient(bottom, $from-color 0%, $to-color 100%);
+  background: -moz-linear-gradient(bottom, $from-color 0%, $to-color 100%);
+  background: -webkit-linear-gradient(bottom, $from-color 0%, $to-color 100%);
+  background: -ms-linear-gradient(bottom, $from-color 0%, $to-color 100%);
+  background: linear-gradient(to bottom, $from-color 0%, $to-color 100%);
+}
+
+@mixin user-select($value) {
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+@mixin noselect() {
+  @include user-select(none)
+}

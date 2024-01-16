@@ -1,0 +1,10 @@
+@import "mixins";
+@import "Common";
+@import "Table";
+@import "ProductPage";
+
+
+.App{
+  background-color: aliceblue;
+  @include box-view(10px, 10px, 10px, 10px, absolute);
+}
