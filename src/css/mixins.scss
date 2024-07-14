@@ -7,9 +7,11 @@
 }
 
 @mixin flex-box($direction, $align-items:auto) {
-  display: flex;
-  flex-direction: $direction;
-  align-items: $align-items;
+  & {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align-items;
+  }
 }
 
 

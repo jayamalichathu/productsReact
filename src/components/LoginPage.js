@@ -27,13 +27,19 @@ export default function Login() {
         });
     }, [navigate, username, password, login]);
 
+    const onKeyPressCallBack = useCallback((event) => {
+        if (event.key === 'Enter') {
+            handleSubmit(event);
+        }
+    },[handleSubmit])
+
 
     const errors = useSelector(state => selectLoginErrors(state));
     console.log("errors", errors)
 
     return(
         <div className="LoginPage" >
-            <div className="login">
+            <div className="login" onKeyPress={onKeyPressCallBack}>
                 <InputPair label="UserName">
                     <input
                         type="text"

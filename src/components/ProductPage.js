@@ -19,7 +19,4 @@ export function ProductPage() {
     else {
         return <Login/>
     }
-
-
-
 }

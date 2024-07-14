@@ -75,8 +75,11 @@ body {
     }
   }
 
-  input[type='text'], input[type='password'] {
+  input[type='text'] {
     width: 180px;
+  }
+  input[type='password'] {
+    width: 172px;
   }
 
   .login_error {
