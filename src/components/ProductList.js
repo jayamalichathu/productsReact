@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 
 import { useSelector, useDispatch } from 'react-redux'
 import {Product} from "./Product";
@@ -69,6 +69,15 @@ export function ProductList() {
     const [selectedProduct, onSelectProduct] = useState(null);
 
     const products = useSelector((state) => selectProducts(state, selectedCategory));
+    const getData = () => {
+        return fetch("http://localhost:3000/api/products")
+            .then(data => data.json())
+    }
+
+    useEffect( () => {
+        getData().then(data => console.log(data))
+            .catch(error => console.log(error));
+    }, [])
 
     const dispatch = useDispatch();
 

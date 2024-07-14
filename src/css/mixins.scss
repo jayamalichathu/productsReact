@@ -12,6 +12,14 @@
   align-items: $align-items;
 }
 
+
+@mixin login-background() {
+  background-color: #ADDBEA; // fallback in case the image can't be loaded.
+  background-position: -10px 0;
+  height: 310px;
+  width: 100%;
+}
+
 @mixin gradient($from-color, $to-color) {
   background: -webkit-gradient(
                   linear,

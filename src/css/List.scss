@@ -1,0 +1,46 @@
+ul.List {
+  width: 200px;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  cursor: default;
+  border: 1px solid $border-color;
+  box-sizing: border-box;
+  outline: none;
+  overflow-y: auto;
+
+  background-color: white;
+  height: 100%;
+
+  > li {
+    height: 22px;
+    line-height: 22px;
+    padding-left: 3px;
+    padding-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    > .CheckBox > input {
+      margin-left: 0;
+    }
+
+    &:nth-of-type(odd) {
+      background-color: $table-alternate-color
+    }
+    &:hover {
+      background-color: $roll-over-color;
+    }
+    &:active,
+    &.selected {
+      background-color: $selection-color;
+    }
+    &.disabled {
+      background-color: $disabled-color;
+    }
+  }
+}
+ul.error_border {
+  border: 1px solid $pale-error-color;
+}

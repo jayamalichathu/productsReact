@@ -5,6 +5,10 @@ $disabled-color: lighten($border-color, 12);
 $focus-color: #4090FF;
 $roll-over-color: #8999b9;
 $selection-color: #7aa8f8;
+$pale-error-color: #FF6666;
+
+$table-alternate-color: #F8FCFE;
+$roll-over-color: #ebeff7;
 
 input[type='button'] {
   height: 22px;

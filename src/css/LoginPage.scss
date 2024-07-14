@@ -1,0 +1,94 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: smaller;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin hb-flex-box($justify, $direction, $align:auto) {
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+
+  align-items: $align;
+}
+
+$banner-overlay-color:rgba(247, 250, 255,0.6);
+$error-color: red;
+
+
+
+@mixin login-background() {
+  background-color: #ADDBEA; // fallback in case the image can't be loaded.
+  background-position: -10px 0;
+  height: 310px;
+}
+
+body {
+  margin: 0;
+}
+
+.LoginPage {
+  @include hb-flex-box(center, column, center);
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .login {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .InputPair > label {
+      white-space: pre;
+      vertical-align: middle;
+    }
+    .InputPair {
+      display: table-row;
+      margin: 0 4px;
+    }
+
+    .InputPair > {
+      input,
+      label,
+      select,
+      button,
+      div {
+        display: table-cell;
+        margin: 3px;
+      }
+    }
+  }
+
+  input[type='text'], input[type='password'] {
+    width: 180px;
+  }
+
+  .login_error {
+    color: $error-color;
+    display: table-caption;
+    text-align: center;
+    padding-bottom: 4px;
+    font-weight: bold;
+    height: 100px;
+  }
+
+  .login_button {
+    @include hb-flex-box(space-around, row, center);
+  }
+}
