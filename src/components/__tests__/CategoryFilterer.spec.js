@@ -1,3 +1,4 @@
+import React from 'react';
 import {render, fireEvent, screen, cleanup} from '@testing-library/react';
 import {CategoryFilterer} from '../CategoryFilterer';
 
@@ -12,7 +13,7 @@ describe('CategoryFilterer Component', () => {
             <CategoryFilterer onSelectCategory={onSelectCategoryMock} />
         );
 
-        const labelElement = screen.getByText('Categories:');
+        const labelElement = screen.getByText('categories');
         const categoryListElement = screen.getByDisplayValue('All');
         expect(labelElement).toBeInTheDocument();
         expect(categoryListElement).toBeInTheDocument();

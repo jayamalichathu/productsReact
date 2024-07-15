@@ -17,6 +17,6 @@ export function ProductPage() {
         );
     }
     else {
-        return <Login/>
+        return (<Login/>);
     }
 }

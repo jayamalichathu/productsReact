@@ -1,3 +1,4 @@
+import React from 'react';
 import {render, fireEvent, screen, cleanup} from '@testing-library/react';
 import {TextBox} from '../TextBox';
 
@@ -9,7 +10,7 @@ describe('TextBox Component', () => {
     it('renders with the provided value', () => {
         render(<TextBox value="test" onChange={() => {}} />);
         const inputElement = screen.getByDisplayValue('test');
-        expect(inputElement).toBeInTheDocument();
+        expect(inputElement).toHaveAttribute("value", "test");
     });
 
     it('type should vary according to the provided type', () => {
